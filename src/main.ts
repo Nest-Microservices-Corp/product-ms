@@ -8,14 +8,16 @@ async function bootstrap() {
 
   const logger = new Logger('main');
 
+  // console.log(envs.nats_servers);
+
   // FIXME: Convertirmos nuestra app tradicional en un microservicio
   // Sepodria tambien trabajar un hibrido
   const app = await NestFactory.createMicroservice<MicroserviceOptions>(
     AppModule,
     {
-      transport: Transport.TCP,
+      transport: Transport.NATS,
       options: {
-        port: envs.port
+        servers: envs.nats_servers
       }
     }
   );
