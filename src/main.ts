@@ -8,8 +8,6 @@ async function bootstrap() {
 
   const logger = new Logger('main');
 
-  // console.log(envs.nats_servers);
-
   // FIXME: Convertirmos nuestra app tradicional en un microservicio
   // Sepodria tambien trabajar un hibrido
   const app = await NestFactory.createMicroservice<MicroserviceOptions>(
@@ -33,7 +31,7 @@ async function bootstrap() {
   // app.setGlobalPrefix('api');
 
   await app.listen();
-
+  console.log('Started product submodule');
   logger.log( `Products microservice running port ::: ${ envs.port }` );
 }
 bootstrap();
