@@ -2,14 +2,14 @@ import 'dotenv/config';
 import * as joi from 'joi';
 
 interface IEnvironments {
-    PORT: number;
+    // PORT: number;
     DATABASE_URL: string;
 
     NATS_SERVERS: string[];
 }
 
 const envSchema = joi.object({
-    PORT: joi.number().required(),
+    // PORT: joi.number().required(),
     DATABASE_URL: joi.string().required(),
     NATS_SERVERS: joi.array().items( joi.string() ).required(),
     
@@ -28,7 +28,7 @@ if( error ) {
 const envVars: IEnvironments = value;
 
 export const envs = {
-    port: envVars.PORT,
+    // port: envVars.PORT,
     databaseUrl: envVars.DATABASE_URL,
     nats_servers: envVars.NATS_SERVERS,
 };

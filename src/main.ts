@@ -6,7 +6,7 @@ import { MicroserviceOptions, Transport } from '@nestjs/microservices';
 
 async function bootstrap() {
 
-  const logger = new Logger('main');
+  const logger = new Logger('Product Main');
 
   // FIXME: Convertirmos nuestra app tradicional en un microservicio
   // Sepodria tambien trabajar un hibrido
@@ -20,7 +20,6 @@ async function bootstrap() {
     }
   );
 
-  
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,
@@ -28,10 +27,7 @@ async function bootstrap() {
     })
   );
 
-  // app.setGlobalPrefix('api');
-
   await app.listen();
-  console.log('Started product submodule');
-  logger.log( `Products microservice running port ::: ${ envs.port }` );
+  logger.log( `Products Ms running ::: ✅ ` );
 }
 bootstrap();
